@@ -3,7 +3,7 @@ package com.ead.authuser.clients;
 import com.ead.authuser.dtos.CourseDto;
 import com.ead.authuser.dtos.ResponsePageDto;
 import com.ead.authuser.services.UtilsService;
-import io.github.resilience4j.retry.annotation.Retry;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,7 +34,8 @@ public class CourseClient {
     @Value("${ead.api.url.course}")
     String REQUEST_URL_COURSE;
 
-    @Retry(name = "retryInstance", fallbackMethod = "retryFallback")
+//    @Retry(name = "retryInstance", fallbackMethod = "retryFallback")
+    @CircuitBreaker(name ="circuitBreakerInstance")
     public Page<CourseDto> getAllCoursesByUser(UUID userId, Pageable pageable) {
         List<CourseDto> searchResult = null;
 
@@ -46,7 +47,8 @@ public class CourseClient {
         log.info("Request URL: {} ", url);
 
         try {
-            ParameterizedTypeReference<ResponsePageDto<CourseDto>> responseType = new ParameterizedTypeReference<ResponsePageDto<CourseDto>>() {};
+            ParameterizedTypeReference<ResponsePageDto<CourseDto>> responseType = new ParameterizedTypeReference<ResponsePageDto<CourseDto>>() {
+            };
             result = restTemplate.exchange(url, HttpMethod.GET, null, responseType);
             searchResult = result.getBody().getContent();
             log.debug("Response Number of elements: {}", searchResult.size());
@@ -65,8 +67,14 @@ public class CourseClient {
         return restTemplate.exchange(url, HttpMethod.GET, null, CourseDto.class);
     }
 
-    public Page<CourseDto> retryFallback(UUID userId, Pageable pageable, Throwable t){
+    public Page<CourseDto> retryFallback(UUID userId, Pageable pageable, Throwable t) {
         log.error("Inside RetryFallback, cause: {} ", t.toString());
+        List<CourseDto> searchResult = new ArrayList<>();
+        return new PageImpl<>(searchResult);
+    }
+
+    public Page<CourseDto> circuitBreakerFallback(UUID userId, Pageable pageable, Throwable t) {
+        log.error("Inside CircuitBreakerFallback, cause: {} ", t.toString());
         List<CourseDto> searchResult = new ArrayList<>();
         return new PageImpl<>(searchResult);
     }

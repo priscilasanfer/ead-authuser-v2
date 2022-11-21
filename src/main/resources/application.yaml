@@ -53,3 +53,14 @@ resilience4j:
       retryIntance:
         maxAttempts: 3
         waitDuration: 5s
+  circuitbreaker:
+    instances:
+      circuitBreakerInstance:
+        sliding-window-size: 30
+        permitted-number-of-calls-in-half-open-state: 2
+        sliding-window-type: TIME_BASED
+        minimum-number-of-calls: 2
+        wait-duration-in-open-state: 30s
+        failure-rate-threshold: 80
+
+
