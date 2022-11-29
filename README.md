@@ -14,3 +14,10 @@
 - Rodar a aplicação
 
 Versão 2 utiliza comunicação sincrona e assincrona entre os microservices
+
+Verificar as configs do projeto:
+- http://localhost:8888/ead-authuser-service/main
+
+Atualizar as configs sem precisar reiniciar a aplicação:
+- http://localhost:8087/ead-authuser/actuator/refresh
+
