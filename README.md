@@ -13,7 +13,7 @@
 - Rodar o projeto: https://github.com/priscilasanfer/ead-course
 - Rodar a aplicação
 
-Versão 2 utiliza comunicação sincrona e assincrona entre os microservices
+Versão 2 utiliza comunicação sincrona utlizando de eventos e assincrona entre os microservices
 
 Verificar as configs do projeto:
 - http://localhost:8888/ead-authuser-service/main
