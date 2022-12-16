@@ -24,12 +24,13 @@
 							"raw": "{\r\n    \"username\": \"michellibrito\",\r\n    \"email\": \"contato@michellibrito.com\",\r\n    \"password\": \"123456\",\r\n    \"fullName\": \"Michelli Brito\",\r\n    \"phoneNumber\": \"11999558844\",\r\n    \"cpf\": \"981.418.958-85\",\r\n    \"imageUrl\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8087/ead-authuser/auth/signup",
-							"protocol": "http",
+							"raw": "http://localhost:8080/ead-authuser/auth/signup",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"<app-name>",
+								"herokuapp",
+								"com"
 							],
-							"port": "8087",
 							"path": [
 								"ead-authuser",
 								"auth",
@@ -60,12 +61,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8087/ead-authuser/auth/login",
-							"protocol": "http",
+							"raw": "http://localhost:8080/ead-authuser/auth/login",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"<app-name>",
+								"herokuapp",
+								"com"
 							],
-							"port": "8087",
 							"path": [
 								"ead-authuser",
 								"auth",
@@ -96,12 +98,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8087/ead-authuser/users",
-							"protocol": "http",
+							"raw": "http://localhost:8080/ead-authuser/users",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"<app-name>",
+								"herokuapp",
+								"com"
 							],
-							"port": "8087",
 							"path": [
 								"ead-authuser",
 								"users"
@@ -158,12 +161,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8087/ead-authuser/users/9743eddb-31d5-43a7-9986-e20a900d6bbd",
-							"protocol": "http",
+							"raw": "http://localhost:8080/ead-authuser/users/9743eddb-31d5-43a7-9986-e20a900d6bbd",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"<app-name>",
+								"herokuapp",
+								"com"
 							],
-							"port": "8087",
 							"path": [
 								"ead-authuser",
 								"users",
@@ -189,12 +193,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8087/ead-authuser/users/f40c285e-df48-418b-96af-1ad672977b32",
-							"protocol": "http",
+							"raw": "http://localhost:8080/ead-authuser/users/f40c285e-df48-418b-96af-1ad672977b32",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"<app-name>",
+								"herokuapp",
+								"com"
 							],
-							"port": "8087",
 							"path": [
 								"ead-authuser",
 								"users",
@@ -230,12 +235,13 @@
 							"raw": " {\r\n    \"fullName\": \"Michelli Brito Updated\",\r\n    \"phoneNumber\": \"+5511987542587\",\r\n    \"cpf\": \"981.418.958-85\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8087/ead-authuser/users/9743eddb-31d5-43a7-9986-e20a900d6bbd",
-							"protocol": "http",
+							"raw": "http://localhost:8080/ead-authuser/users/9743eddb-31d5-43a7-9986-e20a900d6bbd",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"<app-name>",
+								"herokuapp",
+								"com"
 							],
-							"port": "8087",
 							"path": [
 								"ead-authuser",
 								"users",
@@ -271,12 +277,13 @@
 							"raw": "{\r\n       \"password\": \"111444\",\r\n       \"oldPassword\": \"123456\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8087/ead-authuser/users/9743eddb-31d5-43a7-9986-e20a900d6bbd/password",
-							"protocol": "http",
+							"raw": "http://localhost:8080/ead-authuser/users/9743eddb-31d5-43a7-9986-e20a900d6bbd/password",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"<app-name>",
+								"herokuapp",
+								"com"
 							],
-							"port": "8087",
 							"path": [
 								"ead-authuser",
 								"users",
@@ -313,12 +320,13 @@
 							"raw": "{\r\n    \"imageUrl\": \"teste-image-validated\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8087/ead-authuser/users/9743eddb-31d5-43a7-9986-e20a900d6bbd/image",
-							"protocol": "http",
+							"raw": "http://localhost:8080/ead-authuser/users/9743eddb-31d5-43a7-9986-e20a900d6bbd/image",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"<app-name>",
+								"herokuapp",
+								"com"
 							],
-							"port": "8087",
 							"path": [
 								"ead-authuser",
 								"users",
@@ -350,12 +358,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8087/ead-authuser/users/4aebe5ef-4598-405b-80fd-124628747c92/courses",
-							"protocol": "http",
+							"raw": "http://localhost:8080/ead-authuser/users/4aebe5ef-4598-405b-80fd-124628747c92/courses",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"<app-name>",
+								"herokuapp",
+								"com"
 							],
-							"port": "8087",
 							"path": [
 								"ead-authuser",
 								"users",
@@ -409,12 +418,12 @@
 							"raw": "{\r\n    \"courseId\": \"67feed06-dcc8-4832-a57d-8cdb4118dc4d\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8087/ead-authuser/users/a9551ddf-f3ea-41d8-848f-b0b481734a90/courses/subscription",
+							"raw": "http://localhost:8080/ead-authuser/users/a9551ddf-f3ea-41d8-848f-b0b481734a90/courses/subscription",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8087",
+							"port": "8080",
 							"path": [
 								"ead-authuser",
 								"users",
@@ -457,12 +466,13 @@
 							"raw": "{\r\n    \"userId\": \"21635b36-0af9-4406-990f-640df99603e4\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8087/ead-authuser/instructors/subscription",
-							"protocol": "http",
+							"raw": "http://localhost:8080/ead-authuser/instructors/subscription",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"<app-name>",
+								"herokuapp",
+								"com"
 							],
-							"port": "8087",
 							"path": [
 								"ead-authuser",
 								"instructors",
