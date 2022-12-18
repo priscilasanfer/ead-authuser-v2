@@ -19,6 +19,7 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -48,6 +49,9 @@ public class UserController {
 
     @Autowired
     AuthenticationCurrentUserService authenticationCurrentUserService;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @GetMapping
     @PreAuthorize("hasAnyRole('ADMIN')")
@@ -158,14 +162,19 @@ public class UserController {
                     .body("User not found.");
         }
 
-        if (!userModelOptional.get().getPassword().equals(userDto.getOldPassword())) {
+        boolean isPasswordMatches = passwordEncoder.matches(
+                userDto.getOldPassword(),
+                userModelOptional.get().getPassword()
+        );
+
+        if (!isPasswordMatches) {
             log.warn("Mismatched old password userId {} ", userId);
             return ResponseEntity
                     .status(HttpStatus.CONFLICT)
                     .body("Error: Mismatched old password!");
         } else {
             var userModel = userModelOptional.get();
-            userModel.setPassword(userDto.getPassword());
+            userModel.setPassword(passwordEncoder.encode(userDto.getPassword()));
             userModel.setLastUpdateDate(LocalDateTime.now(ZoneId.of("UTC")));
             userService.updatePassword(userModel);
             log.debug("PUT updatePassword userId saved {} ", userModel.getUserId());
