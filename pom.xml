@@ -16,6 +16,8 @@
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2020.0.4</spring-cloud.version>
+		<log4j2.version>2.17.0</log4j2.version>
+		<ecs-logging-java.version>1.5.0</ecs-logging-java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -112,6 +114,11 @@
 			<version>3.0.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>co.elastic.logging</groupId>
+			<artifactId>log4j2-ecs-layout</artifactId>
+			<version>${ecs-logging-java.version}</version>
+		</dependency>
 
 	</dependencies>
 
