@@ -81,7 +81,7 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    @PreAuthorize("hasAnyRole('STUDENT')")
+    @PreAuthorize("hasAnyRole('USER')")
     public ResponseEntity<Object> getOneUser(@PathVariable(value = "userId") UUID userId) {
         UUID currentUserId = authenticationCurrentUserService.getCurrentUser().getUserId();
 
